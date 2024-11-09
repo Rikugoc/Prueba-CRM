@@ -48,24 +48,23 @@ class Api {
 						}
 
 						$rows = array();			
-						$rows[] = $tasks['id'];
-						$rows[] = $tasks['titulo'];			
-						$rows[] = $tasks['Descripcion'];
+						$rows['id'] = $tasks['id'];
+						$rows['titulo'] = $tasks['titulo'];			
+						$rows['descripcion'] = $tasks['Descripcion'];
 						switch ($tasks['Estado']){
 							case '1':
-								$rows[] = "To Do";
+								$rows['estado'] = "To Do";
 								break;
 							case '2':
-								$rows[] = "Doing";
+								$rows['estado'] = "Doing";
 								break;
 							case '3':
-								$rows[] = "Done";
+								$rows['estado'] = "Done";
 								break;
 							default:
-								$rows[] = $tasks['Estado'];
+								$rows['estado'] = $tasks['Estado'];
 						}
-						
-						$rows[] = $asignados;
+						$rows['asignados'] = $asignados;	
 						$records[] = $rows;
 
 					}
@@ -115,23 +114,23 @@ class Api {
 							}
 
 							$rows = array();			
-							$rows[] = $tasks['id'];
-							$rows[] = $tasks['titulo'];			
-							$rows[] = $tasks['Descripcion'];
+							$rows['id'] = $tasks['id'];
+							$rows['titulo'] = $tasks['titulo'];			
+							$rows['descripcion'] = $tasks['Descripcion'];
 							switch ($tasks['Estado']){
 								case '1':
-									$rows[] = "To Do";
+									$rows['estado'] = "To Do";
 									break;
 								case '2':
-									$rows[] = "Doing";
+									$rows['estado'] = "Doing";
 									break;
 								case '3':
-									$rows[] = "Done";
+									$rows['estado'] = "Done";
 									break;
 								default:
-									$rows[] = $tasks['Estado'];
+									$rows['estado'] = $tasks['Estado'];
 							}
-							$rows[] = $asignados;		
+							$rows['asignados'] = $asignados;		
 							$records[] = $rows;
 						}
 
@@ -141,6 +140,9 @@ class Api {
 
 				}
 			}
+		}
+		else{
+			echo "Credenciales Incorrectas";
 		}
 	}
 
